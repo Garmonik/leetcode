@@ -2,6 +2,7 @@ from typing import List, Optional
 import sys
 from termcolor import colored
 
+#=======================================================================================================================
 
 class Solution:
     def twoSum(self, nums: List[int], target: Optional[int]) -> Optional[List[int]]:
@@ -15,6 +16,7 @@ class Solution:
             hashMap[num] = i
         return None
 
+#=======================================================================================================================
 
 def print_test_header():
     header = "🚀 Testing twoSum Implementation"

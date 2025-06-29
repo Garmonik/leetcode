@@ -37,11 +37,23 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 
 ## Algorithm
 
-The most obvious solution to this problem is to iterate through all pairs of numbers to find the desired pair, which is time-consuming since the algorithm's time complexity is ```O(n²)```. For small array lengths, this is not critical, but in the worst case, the array length could be ```10⁴```, resulting in a loop with ```10⁸``` iterations, which is very slow.
+To solve this algorithm, we’ll create a ```dummy``` **anchor** to build the resulting list from. We’ll also need
+an intermediate variable ```carry```, which will store the value ```(val1 + val2 + carry) // 10``` 
+— this is necessary to **"keep the number in mind"**. Additionally, we’ll create a ```tail``` variable 
+and assign it the value of dummy.
 
-To solve this problem, we can devise an algorithm with a time complexity of ```O(n²)```, significantly improving performance. We'll use a hash table for this solution. Here’s the step-by-step approach:
-1) Calculate `rimmed = target - num`.
-2) Check if `rimmed` was previously a key in our hash table. If not, store a new entry in the table with `num` as the key and its array index as the value. If `rimmed` already exists as a key, return the current number's index and the index stored under the `rimmed` key.
+We’ll initialize **```carry``` as 0**. Then, we’ll loop through both lists until 
+**both lists are exhausted** and **```carry``` becomes 0**.
 
-This approach achieves a time complexity of ```O(n)```, with a space complexity of ```O(n)```.  
-If we had used the brute-force method, the space complexity would have been ```O(1)```.
+On each iteration of the loop, we’ll:
+
+1) Retrieve the values of the current list elements.
+2) **Sum them together**, along with ```carry```.
+3) Create a **new element** for the resulting list and set its value to ```(val1 + val2 + carry) % 10```.
+4) **Recalculate ```carry```** as described earlier.
+5) Assign the new element to the ```tail.next``` pointer and move ```tail``` to this new element.
+
+In the end, we’ll have a **singly linked list** spanning from the anchor (```dummy```) to the last element.
+
+To obtain the final answer, we need to return ```dummy.next``` (since ```dummy``` is empty by default) and
+return what we get.

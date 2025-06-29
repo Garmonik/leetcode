@@ -5,6 +5,8 @@ import (
 	"reflect"
 )
 
+//=======================================================================================================================
+
 func twoSum(nums []int, target int) []int {
 	hashMap := make(map[int]int)
 	for i, num := range nums {
@@ -17,6 +19,8 @@ func twoSum(nums []int, target int) []int {
 	}
 	return nil
 }
+
+//=======================================================================================================================
 
 func colorize(text string, colorCode string) string {
 	return fmt.Sprintf("\033[%sm%s\033[0m", colorCode, text)
