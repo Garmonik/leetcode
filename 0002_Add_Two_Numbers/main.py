@@ -1,4 +1,3 @@
-# Definition for singly-linked list.
 import unittest
 from typing import Optional
 
