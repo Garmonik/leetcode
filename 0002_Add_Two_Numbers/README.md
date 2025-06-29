@@ -34,6 +34,7 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 - [x] Python3
 - [x] Go
 - [x] JavaScript
+- [x] TypeScript
 
 ## Algorithm
 

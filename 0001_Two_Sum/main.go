@@ -26,7 +26,6 @@ func colorize(text string, colorCode string) string {
 	return fmt.Sprintf("\033[%sm%s\033[0m", colorCode, text)
 }
 
-// Вывод заголовка тестов
 func printTestHeader() {
 	header := "🚀 Testing twoSum Implementation"
 	line := "="
